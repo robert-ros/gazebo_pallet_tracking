@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="robot_id" default="robot" />
+    <arg name="camera_topic" default="robot/rear_camera/rgb/image_raw" />
+    <arg name="camera_depth_topic" default="robot/rear_camera/depth/points" /> 
+
+    <group ns="$(arg robot_id)">
+
+        <node pkg="gazebo_pallet_tracking" type="pallet_tracking.py" name="pallet_tracking_node" output="screen">
+            <param name="camera_topic" value="$(arg camera_topic)" /> 
+            <param name="camera_depth_topic" value="$(arg camera_depth_topic)" /> 
+            <param name="verbosity_level" value="1" />
+        </node>
+
+    </group>
+
+</launch>
