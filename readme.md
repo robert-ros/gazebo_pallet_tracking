@@ -4,7 +4,7 @@
 
 This packages provides a detection system for pallets using Gazebo. An europallet model has been modified and
 now it has three marks for detection. OpenCV detects the color of the marks and filters the image. After that,
-it runs a algortihn to detect the shapes of the marks. With this localization and the pointcloud of the camera
+it runs a algortihm to detect the shapes of the marks. With this localization and the pointcloud of the camera
 we get the distance. Finally, the position and orientations is calculated.
 
 # User guide
@@ -27,7 +27,7 @@ we get the distance. Finally, the position and orientations is calculated.
 
 ```
 4. Spawn the europallet model in the simulation. This model has a three markers for detection. Add the model
-into your ./gazebo models folder:
+into your ```./gazebo``` models folder:
 
 ```
 $ roscd gazebo_pallet_tracking
@@ -39,10 +39,29 @@ $ cp ./europallet  ~/.gazebo/models
 ```
 $ roslaunch gazebo_pallet_tracking pallet_tracking.launch
 ```
+
 6. A window will be opened. You will see if a pallet is detected or not
 
 <img src="img/test.png"
      style="width: 50%; margin-left: 100px;" />
+
+7. You can get the pose stamped of the pallet in the follow topic. It publish each time that a pallet is detected
+
+```
+$ rostopic echo /robot/pallet_detection/pose
+```
+
+8. You can run the detection by a service:
+
+```
+$ rosservice call /robot/pallet_detection/trigger
+```
+
+If a pallet is detected it publish once in the follow topic:
+
+```
+$ rostopic echo /robot/pallet_detection/pose_triggered
+```
 
 # Limitations
 
