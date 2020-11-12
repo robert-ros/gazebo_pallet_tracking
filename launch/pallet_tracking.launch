@@ -2,8 +2,8 @@
 <launch>
 
     <arg name="robot_id" default="robot" />
-    <arg name="camera_topic" default="robot/rear_camera/rgb/image_raw" />
-    <arg name="camera_depth_topic" default="robot/rear_camera/depth/points" /> 
+    <arg name="camera_topic" default="front_camera/rgb/image_raw" />
+    <arg name="camera_depth_topic" default="front_camera/depth/points" /> 
 
     <group ns="$(arg robot_id)">
 
